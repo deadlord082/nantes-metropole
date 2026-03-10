@@ -4,6 +4,7 @@ import { useEffect } from 'react'
 import dynamic from 'next/dynamic'
 import type { Station } from '@/app/api/stations/route'
 import { Loader2 } from 'lucide-react'
+import { useMap } from 'react-leaflet'
 
 interface StationMapProps {
   stations: Station[]
@@ -41,17 +42,17 @@ const Popup = dynamic(
   },
   { ssr: false }
 )
-const useMap = dynamic(
-  async () => {
-    const { useMap } = await import('react-leaflet')
-    return useMap
-  },
-  { ssr: false }
-)
+// const useMap = dynamic(
+//   async () => {
+//     const { useMap } = await import('react-leaflet')
+//     return useMap
+//   },
+//   { ssr: false }
+// )
 
 // Helper component to pan map to selected station
 function MapPanTo({ position }: { position: { lat: number; lng: number } }) {
-  const map: any = useMap()
+  const map = useMap()  // hook réel
   useEffect(() => {
     if (position && map) {
       map.setView([position.lat, position.lng], 16, { animate: true })
