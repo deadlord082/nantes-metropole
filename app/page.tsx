@@ -5,12 +5,12 @@ import { List, Map as MapIcon } from 'lucide-react'
 import { Header } from '@/components/header'
 import { StationFilters, type Filters } from '@/components/station-filters'
 import { StationList } from '@/components/station-list'
-import { StationMap } from '@/components/station-map'
 import { Button } from '@/components/ui/button'
 import { useStations } from '@/hooks/use-stations'
 import { useFavorites } from '@/hooks/use-favorites'
 import { useGeolocation } from '@/hooks/use-geolocation'
 import type { Station } from '@/app/api/stations/route'
+import dynamic from 'next/dynamic'
 
 export default function Home() {
   const { stations, isLoading, refresh } = useStations()
@@ -19,6 +19,7 @@ export default function Home() {
   const [isRefreshing, setIsRefreshing] = useState(false)
   const [view, setView] = useState<'list' | 'map'>('list')
   const [selectedStation, setSelectedStation] = useState<Station | null>(null)
+  const StationMap = dynamic(() => import('@/components/station-map'), { ssr: false })
   const [filters, setFilters] = useState<Filters>({
     search: '',
     hasBikes: false,
