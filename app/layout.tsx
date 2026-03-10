@@ -7,7 +7,7 @@ const _geist = Geist({ subsets: ["latin"] });
 const _geistMono = Geist_Mono({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: 'Bicloo - Vélos en libre service | Nantes Métropole',
+  title: 'Gaboriau Lukas - Vélos en libre service | Nantes Métropole',
   description: 'Trouvez facilement une station de vélos en libre service à Nantes Métropole. Consultez la disponibilité des vélos et des places en temps réel.',
   generator: 'v0.app',
   icons: {

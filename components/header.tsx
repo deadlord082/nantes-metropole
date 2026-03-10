@@ -20,7 +20,7 @@ export function Header({ onRefresh, onLocate, isRefreshing, isLocating }: Header
               <Bike className="h-6 w-6 text-primary-foreground" />
             </div>
             <div>
-              <h1 className="font-bold text-lg text-foreground leading-tight">Bicloo</h1>
+              <h1 className="font-bold text-lg text-foreground leading-tight">Gaboriau Lukas</h1>
               <p className="text-xs text-muted-foreground">Nantes Métropole</p>
             </div>
           </div>
